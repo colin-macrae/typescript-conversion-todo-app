@@ -1,4 +1,4 @@
-export function getToDos() {
+export function getToDos(): JSX.Element {
   let toDos = JSON.parse(localStorage.getItem("to-do"));
   if (toDos === null) {
     return [];

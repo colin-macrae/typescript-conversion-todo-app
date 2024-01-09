@@ -10,7 +10,7 @@ import {
 } from "./HomeUtils";
 import { useForm } from "react-hook-form";
 
-export default function Home() {
+export default function Home(): JSX.Element {
   const [toDoItems, setToDoItems] = useState([]);
   const [filter, setFilter] = useState("all");
   const [itemSearch, setItemSearch] = useState("");

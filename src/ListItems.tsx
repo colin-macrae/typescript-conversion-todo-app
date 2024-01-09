@@ -1,6 +1,6 @@
 import "./Home.css";
 
-export default function ListItems({ toDoItem, toDoItems, setToDoItems }) {
+export default function ListItems({ toDoItem, toDoItems, setToDoItems }): JSX.Element {
   const { text, id, completed } = toDoItem;
 
   function removeItem() {

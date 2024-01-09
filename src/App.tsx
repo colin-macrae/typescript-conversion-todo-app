@@ -1,6 +1,6 @@
 import Home from "./Home";
 
-function App() {
+function App(): JSX.Element {
   return (
     <>
       <Home />
