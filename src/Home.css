@@ -1,0 +1,244 @@
+/* General */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 1.6rem;
+}
+
+body {
+  font-family: "Rubik", sans-serif;
+  line-height: 1;
+  font-weight: 400;
+  color: #555;
+}
+
+html {
+  /* 10px / 16px = .625, converted the default from 16px to 10px as its base, to make it equal to 10px using percentages */
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+strong {
+  font-weight: 500;
+}
+
+.container {
+  max-width: 800px;
+  margin: 1rem auto;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 8px 8px 20px 0 rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-color: #f7f7f7;
+}
+
+.body {
+  width: 90%;
+  margin: auto;
+}
+
+li {
+  list-style-type: none;
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 3rem;
+  margin-bottom: 3rem;
+  font-size: 2.2rem;
+}
+
+/* Buttons general */
+button, .save-btn {
+  border: 1px solid rgba(0, 0, 0, 0.336);
+  padding: 0.8rem 1rem;
+  margin: 0 0.5rem;
+  border-radius: 5px;
+  background-color: #0077b6;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover, .save-btn:hover {
+  background-color: #005b8f;
+}
+
+/* Filter buttons and search field section */
+.filter-section {
+  margin-bottom: 3rem;
+  display: flex;
+  justify-content: center;
+}
+
+.filtered-btn-active,
+.filtered-btn-active:hover {
+  box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.288) inset;
+  background-color: #0092b6;
+}
+
+/* Input field & save button */
+.form {
+  margin-bottom: 3rem;
+  display: flex;
+}
+
+.text-input-box, .search-input {
+  padding: 1rem;
+}
+
+.new-item-input {
+  width: 50%;
+}
+
+.input-error-msg {
+  display: flex;
+  margin-left: .5rem;
+  align-items: center;
+  color: red;
+}
+
+
+
+.save-btn {
+  margin-left: 1.5rem;
+  margin-right: 0;
+  width: 50%;
+}
+
+/* List items, general */
+.list-items-container {
+  margin-bottom: 8rem;
+}
+
+.list-item {
+  display: flex;
+  padding: 0.5rem 1rem;
+  background-color: rgb(245, 245, 245);
+  margin: 1rem 0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.1);
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.list-item:hover {
+  background-color: rgb(235, 235, 235);
+}
+
+/* List item text */
+.text-container {
+  margin: auto 0;
+}
+
+.checkbox {
+  opacity: 0;
+  position: absolute;
+}
+
+.item-text {
+  padding: 0.8rem;
+  line-height: 1.5;
+}
+
+.item-text:hover {
+  cursor: default;
+}
+
+/* Remove item button */
+.remove-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.remove-item {
+  background-color: transparent;
+  border: none;
+  padding: 1rem;
+  border-radius: 50%;
+  color: black;
+  height: 4rem;
+}
+
+.remove-item:hover {
+  background-color: rgb(214, 214, 214);
+}
+
+/* Remove completed button */
+.remove-completed-btn-container {
+  display: flex;
+  justify-content: end;
+}
+
+.remove-completed-btn {
+  margin-bottom: 3rem;
+  background-color: #ff6b6b;
+}
+
+.remove-completed-btn:hover {
+  background-color: #fa5454;
+}
+
+.no-completed-items,
+.no-completed-items:hover {
+  margin-bottom: 3rem;
+  background-color: #9e9e9e;
+  cursor: default;
+}
+
+@media screen and (max-width: 500px) {
+  .body {
+    width: 92.5%;
+    /* margin: 1rem auto; */
+  }
+
+  h1 {
+    padding-top: 2rem;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+  }
+
+  .filter-section {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  button, .save-btn {
+    border: 1px solid rgba(0, 0, 0, 0.336);
+    padding: 0.8rem 1rem;
+    margin: 0 0.2rem;
+    border-radius: 5px;
+    background-color: #0077b6;
+    color: white;
+    cursor: pointer;
+  }
+
+  .filter-section form .text-input-box, .filter-section form .search-input {
+    width: 100%;
+    margin-left: 0.2rem;
+  }
+
+  .form {
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: none;
+  }
+
+  .new-item-input {
+    width: 60%;
+  }
+
+  .save-btn {
+    margin-left: 1.5rem;
+    width: 40%;
+  }
+}
