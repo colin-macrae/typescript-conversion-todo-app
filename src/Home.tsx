@@ -9,11 +9,13 @@ import {
   handleFilter,
 } from "./HomeUtils";
 import { useForm } from "react-hook-form";
+import { toDoItem } from "./HomeUtils";
+
 
 export default function Home(): JSX.Element {
-  const [toDoItems, setToDoItems] = useState([]);
-  const [filter, setFilter] = useState("all");
-  const [itemSearch, setItemSearch] = useState("");
+  const [toDoItems, setToDoItems] = useState<toDoItem[]>([]);
+  const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
+  const [itemSearch, setItemSearch] = useState<string>("");
 
   const {
     handleSubmit,

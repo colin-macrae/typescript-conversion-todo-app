@@ -5,14 +5,15 @@
     "moduleResolution": "node",
     "jsx": "react-jsx",
     "strict": true,
+    "composite": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "typeRoots": ["./node_modules/@types", "./src/types"],
-    "types": ["vite/client", "react-beautiful-dnd", "react-hook-form"]
+    "types": ["vite/client", "react-beautiful-dnd", "react-hook-form"],
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.json"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules"],
 }
 

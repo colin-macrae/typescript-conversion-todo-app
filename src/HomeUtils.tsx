@@ -1,5 +1,5 @@
-export function getToDos(): JSX.Element {
-  let toDos = JSON.parse(localStorage.getItem("to-do"));
+export function getToDos(): toDoItem[] {
+  let toDos: toDoItem = JSON.parse(localStorage.getItem("to-do"));
   if (toDos === null) {
     return [];
   } else return toDos;
@@ -43,3 +43,9 @@ export const handleFilter = (selectedFilter, { setItemSearch, setFilter }) => {
   // Clears search field when button filters used
   setItemSearch("");
 };
+
+export interface toDoItem {
+  text: string;
+  completed: boolean;
+  id: number;
+}
