@@ -1,5 +1,8 @@
 export function getToDos(): toDoItem[] {
-  let toDos: toDoItem = JSON.parse(localStorage.getItem("to-do"));
+  const localStorageData = localStorage.getItem("to-do");
+  let toDos: toDoItem[] = localStorageData
+    ? JSON.parse(localStorageData)
+    : null;
   if (toDos === null) {
     return [];
   } else return toDos;
