@@ -49,11 +49,14 @@ export function removeAllCompleted(props: RemoveAllCompletedProps) {
 }
 
 interface HandleFilterOptions {
-  setFilter: (searchInput: string) => void;
+  setFilter: (filter: "all" | "active" | "completed") => void;
   setItemSearch: (searchInput: string) => void;
 }
-export function handleFilter(selectedFilter: string, props: HandleFilterOptions) {
-  const { setFilter, setItemSearch } = props;  
+export function handleFilter(
+  selectedFilter: "all" | "active" | "completed",
+  props: HandleFilterOptions
+) {
+  const { setFilter, setItemSearch } = props;
   setFilter(selectedFilter);
   // Clears search field when button filters used
   setItemSearch("");
