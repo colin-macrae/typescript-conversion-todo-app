@@ -5,14 +5,14 @@ export function getToDos(): toDoItem[] {
   } else return toDos;
 }
 
-interface onSubmitProps {
+interface OnSubmitProps {
   setToDoItems: (toDoItems: toDoItem[]) => void;
   toDoItems: toDoItem[];
   watch: (name: string) => any; 
   reset: (values?: Record<string, any>) => void;
   setItemSearch: (searchInput: string) => void;
 }
-export function onSubmit(props: onSubmitProps) {
+export function onSubmit(props: OnSubmitProps) {
   const newEntryText = props.watch("new-entry-input");
   // Prevents adding empty to-dos
   if (newEntryText.trim() === "") {
@@ -32,18 +32,27 @@ export function onSubmit(props: onSubmitProps) {
   props.setItemSearch("");
 }
 
-export function removeAllCompleted({ setToDoItems, toDoItems }) {
-  const updatedToDoItems = toDoItems.filter((item) => !item.completed);
-  setToDoItems(updatedToDoItems);
+interface RemoveAllCompletedProps {
+  setToDoItems: (toDoItems: toDoItem[]) => void;
+  toDoItems: toDoItem[];
+}
+export function removeAllCompleted(props: RemoveAllCompletedProps) {
+  const updatedToDoItems = props.toDoItems.filter((item) => !item.completed);
+  props.setToDoItems(updatedToDoItems);
   const itemsJSON = JSON.stringify(updatedToDoItems);
   localStorage.setItem("to-do", itemsJSON);
 }
 
-export const handleFilter = (selectedFilter, { setItemSearch, setFilter }) => {
+interface HandleFilterOptions {
+  setFilter: (searchInput: string) => void;
+  setItemSearch: (searchInput: string) => void;
+}
+export function handleFilter(selectedFilter: string, props: HandleFilterOptions) {
+  const { setFilter, setItemSearch } = props;  
   setFilter(selectedFilter);
   // Clears search field when button filters used
   setItemSearch("");
-};
+}
 
 export interface toDoItem {
   text: string;
