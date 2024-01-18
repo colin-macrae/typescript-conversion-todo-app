@@ -1,8 +1,15 @@
 import "./Home.css";
+import { toDoItem } from "./HomeUtils";
 
-export default function ListItems({ toDoItem, toDoItems, setToDoItems }): JSX.Element {
+interface ListItemsProps {
+  setToDoItems: (toDoItems: toDoItem[]) => void;
+  toDoItems: toDoItem[];
+  toDoItem: toDoItem;
+}
+export default function ListItems(props: ListItemsProps): JSX.Element {  
+  const { setToDoItems, toDoItem, toDoItems } = props;
   const { text, id, completed } = toDoItem;
-
+  
   function removeItem() {
     setToDoItems((oldItems) =>
       oldItems.map((item) => (item.id === id ? null : item)).filter(Boolean)
