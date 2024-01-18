@@ -13,7 +13,8 @@ interface OnSubmitProps {
   setItemSearch: (searchInput: string) => void;
 }
 export function onSubmit(props: OnSubmitProps) {
-  const newEntryText = props.watch("new-entry-input");
+  const { setToDoItems, reset, setItemSearch, toDoItems, watch } = props;
+  const newEntryText = watch("new-entry-input");
   // Prevents adding empty to-dos
   if (newEntryText.trim() === "") {
     return;
@@ -23,13 +24,13 @@ export function onSubmit(props: OnSubmitProps) {
     completed: false,
     id: Math.random(),
   };
-  const updatedToDoItems = [...props.toDoItems];
+  const updatedToDoItems = [...toDoItems];
   updatedToDoItems.unshift(newEntry);
-  props.setToDoItems(updatedToDoItems);
+  setToDoItems(updatedToDoItems);
   const itemsJSON = JSON.stringify(updatedToDoItems);
   localStorage.setItem("to-do", itemsJSON);
-  props.reset({ "new-entry-input": "" });
-  props.setItemSearch("");
+  reset({ "new-entry-input": "" });
+  setItemSearch("");
 }
 
 interface RemoveAllCompletedProps {
@@ -37,8 +38,9 @@ interface RemoveAllCompletedProps {
   toDoItems: toDoItem[];
 }
 export function removeAllCompleted(props: RemoveAllCompletedProps) {
-  const updatedToDoItems = props.toDoItems.filter((item) => !item.completed);
-  props.setToDoItems(updatedToDoItems);
+  const { setToDoItems, toDoItems } = props;
+  const updatedToDoItems = toDoItems.filter((item) => !item.completed);
+  setToDoItems(updatedToDoItems);
   const itemsJSON = JSON.stringify(updatedToDoItems);
   localStorage.setItem("to-do", itemsJSON);
 }
