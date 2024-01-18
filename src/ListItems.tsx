@@ -11,8 +11,8 @@ export default function ListItems(props: ListItemsProps): JSX.Element {
   const { text, id, completed } = toDoItem;
   
   function removeItem() {
-    setToDoItems((oldItems) =>
-      oldItems.map((item) => (item.id === id ? null : item)).filter(Boolean)
+    setToDoItems((originalItems: toDoItem[]) =>
+      originalItems.filter((item: toDoItem) => item.id !== id)
     );
     const updatedToDoItems = toDoItems.filter((item) => item.id !== id);
     const itemsJSON = JSON.stringify(updatedToDoItems);
@@ -47,7 +47,7 @@ export default function ListItems(props: ListItemsProps): JSX.Element {
       </div>
       <div className="remove-btn-container">
         <button className="remove-item" onClick={removeItem}>
-          <i className="fas fa-times"></i>
+          <i className="fas fa-times">x</i>
         </button>
       </div>
     </div>
