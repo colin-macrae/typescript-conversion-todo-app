@@ -9,13 +9,11 @@ interface ListItemsProps {
 export default function ListItems(props: ListItemsProps): JSX.Element {  
   const { setToDoItems, toDoItem, toDoItems } = props;
   const { text, id, completed } = toDoItem;
-  
+
   function removeItem() {
-    setToDoItems((originalItems: toDoItem[]) =>
-      originalItems.filter((item: toDoItem) => item.id !== id)
-    );
-    const updatedToDoItems = toDoItems.filter((item) => item.id !== id);
-    const itemsJSON = JSON.stringify(updatedToDoItems);
+    const newToDoItems = toDoItems.filter((item: toDoItem) => item.id !== id);
+    setToDoItems(newToDoItems);
+    const itemsJSON = JSON.stringify(newToDoItems);
     localStorage.setItem("to-do", itemsJSON);
   }
 
@@ -44,7 +42,7 @@ export default function ListItems(props: ListItemsProps): JSX.Element {
           onChange={toggleCompleted}
         />
         <p className="item-text" onClick={toggleCompleted}>
-          {completed ? <strike>{text}</strike> : text}
+          {completed ? <del>{text}</del> : text}
         </p>
       </div>
       <div className="remove-btn-container">
