@@ -28,8 +28,10 @@ export default function ListItems(props: ListItemsProps): JSX.Element {
     localStorage.setItem("to-do", itemsJSON);
 
     // Removes input field's focus to prevent the keyboard from popping up upon every toggle attempt on mobile
-    const inputField = document.querySelector(".text-input-box");
-    inputField.blur();
+    const inputField = document.querySelector(".text-input-box") as HTMLInputElement | null;
+    if (inputField) {
+      inputField.blur();
+    }
   }
 
   return (
