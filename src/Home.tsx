@@ -24,7 +24,7 @@ export default function Home(): JSX.Element {
     reset,
     formState: { errors },
   } = useForm();
-
+  
   useEffect(() => {
     const toDos = getToDos();
     setToDoItems(toDos);
@@ -98,7 +98,7 @@ export default function Home(): JSX.Element {
           />
           {errors["new-entry-input"] && (
             <p className="input-error-msg">
-              {errors["new-entry-input"].message}
+              {(errors["new-entry-input"] as { message: string }).message}
             </p>
           )}
           <input type="submit" className="save-btn" />
