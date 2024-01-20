@@ -1,5 +1,7 @@
 import "./Home.css";
 import { toDoItem } from "./HomeUtils";
+import { FaTimes } from "react-icons/fa";
+
 
 interface ListItemsProps {
   setToDoItems: (toDoItems: toDoItem[]) => void;
@@ -47,7 +49,7 @@ export default function ListItems(props: ListItemsProps): JSX.Element {
       </div>
       <div className="remove-btn-container">
         <button className="remove-item" onClick={removeItem}>
-          <i className="fas fa-times">x</i>
+          <FaTimes />
         </button>
       </div>
     </div>
