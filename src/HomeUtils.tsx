@@ -11,7 +11,7 @@ export function getToDos(): toDoItem[] {
 interface OnSubmitProps {
   setToDoItems: (toDoItems: toDoItem[]) => void;
   toDoItems: toDoItem[];
-  watch: (name: string) => any; 
+  watch: (name: string) => any;
   reset: (values?: Record<string, any>) => void;
   setItemSearch: (searchInput: string) => void;
 }
@@ -36,12 +36,12 @@ export function onSubmit(props: OnSubmitProps) {
   setItemSearch("");
 }
 
-interface RemoveAllCompletedProps {
-  setToDoItems: (toDoItems: toDoItem[]) => void;
-  toDoItems: toDoItem[];
-}
-export function removeAllCompleted(props: RemoveAllCompletedProps) {
-  const { setToDoItems, toDoItems } = props;
+// used "type" on only one prop because, for the time being, I could not get "interface" to work correctly on both props 
+type SetToDoItems = (updatedToDoItems: toDoItem[]) => void;
+export function removeAllCompleted(
+  toDoItems: toDoItem[],
+  setToDoItems: SetToDoItems
+) {
   const updatedToDoItems = toDoItems.filter((item) => !item.completed);
   setToDoItems(updatedToDoItems);
   const itemsJSON = JSON.stringify(updatedToDoItems);

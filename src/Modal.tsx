@@ -1,15 +1,16 @@
 import "./Home.css";
-import { toDoItem } from "./HomeUtils";
+import { removeAllCompleted, toDoItem } from "./HomeUtils";
 
 interface ModalProps {
   showModal: boolean; 
-  setToDoItems(value: toDoItem | []): void;
+  setToDoItems(value: toDoItem[]): void;
   setShowModal(value: boolean): void;
+  toDoItems: toDoItem[];
 }
 
 // Modal
 export default function Modal(props: ModalProps) {
-  const { showModal, setToDoItems, setShowModal } = props;
+  const { showModal, setToDoItems, setShowModal, toDoItems } = props;
   return (
     <div className={showModal ? "clear-all-modal" : "clear-all-modal hide"}>
       <div className="clear-all-modal-box">
@@ -25,8 +26,7 @@ export default function Modal(props: ModalProps) {
           <button
             className="confirm-clear-all-btn"
             onClick={() => {
-              localStorage.removeItem("to-do");
-              setToDoItems([]);
+              removeAllCompleted(toDoItems, setToDoItems);              
               setShowModal(false);
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}

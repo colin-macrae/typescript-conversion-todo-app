@@ -184,9 +184,11 @@ export default function Home(): JSX.Element {
           </button>
         </div>
         < Modal 
+        toDoItems={toDoItems}
+        setToDoItems={setToDoItems}
         showModal={showModal}
         setShowModal={setShowModal}
-        setToDoItems={setToDoItems} />
+        />
       </section>
     </div>
   );
