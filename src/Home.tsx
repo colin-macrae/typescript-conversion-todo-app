@@ -5,17 +5,18 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import {
   getToDos,
   onSubmit,
-  removeAllCompleted,
   handleFilter,
 } from "./HomeUtils";
 import { useForm } from "react-hook-form";
 import { toDoItem } from "./HomeUtils";
+import Modal from "./Modal";
 
 
 export default function Home(): JSX.Element {
   const [toDoItems, setToDoItems] = useState<toDoItem[]>([]);
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
   const [itemSearch, setItemSearch] = useState<string>("");
+  const [ showModal, setShowModal ] = useState<boolean>(false);
 
   const {
     handleSubmit,
@@ -176,14 +177,17 @@ export default function Home(): JSX.Element {
             }
             //Empty arrow function sets ternary to do nothing
             onClick={
-              filter !== "active"
-                ? () => removeAllCompleted({ setToDoItems, toDoItems })
-                : () => {}
+              () =>
+              setShowModal(true)
             }
           >
             Remove Completed
           </button>
         </div>
+        < Modal 
+        showModal={showModal}
+        setShowModal={setShowModal}
+        setToDoItems={setToDoItems} />
       </section>
     </div>
   );

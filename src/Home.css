@@ -195,7 +195,6 @@ button:hover, .save-btn:hover {
 @media screen and (max-width: 500px) {
   .body {
     width: 92.5%;
-    /* margin: 1rem auto; */
   }
 
   h1 {
@@ -239,4 +238,64 @@ button:hover, .save-btn:hover {
     margin-left: 1.5rem;
     width: 40%;
   }
+}
+
+/* Modal */
+.outer-container {
+  position: relative;
+}
+
+.clear-all-modal {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.507);
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.clear-all-modal-box {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  margin-bottom: 30rem;
+  max-width: 90%;
+}
+
+.clear-all-modal-text {
+  color: black;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.clear-all-btn-container {
+  display: flex;
+  justify-content: center;
+}
+
+.clear-all-modal button {
+  padding: 0.5rem 1rem;
+}
+
+.cancel-clear-all-btn {
+  background-color: #0077b6;
+  color: white;
+  margin-right: 4rem;
+}
+
+.confirm-clear-all-btn {
+  background-color: rgb(206, 1, 1);
+  color: white;
+}
+
+.confirm-clear-all-btn:hover {
+  background-color: rgb(156, 0, 0);
+}
+
+.hide {
+  display: none;
 }
