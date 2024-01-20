@@ -16,7 +16,7 @@ export default function Home(): JSX.Element {
   const [toDoItems, setToDoItems] = useState<toDoItem[]>([]);
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
   const [itemSearch, setItemSearch] = useState<string>("");
-  const [ showModal, setShowModal ] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   const {
     handleSubmit,
@@ -175,7 +175,6 @@ export default function Home(): JSX.Element {
                 ? "remove-completed-btn"
                 : "no-completed-items"
             }
-            //Empty arrow function sets ternary to do nothing
             onClick={
               () =>
               setShowModal(true)
